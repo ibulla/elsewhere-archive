@@ -1,5 +1,6 @@
 import rawEntries from '../data/entries.json';
 import type { Entry } from '../types';
+import { resolveCountry } from './countries';
 
 const orientations = new Set(['landscape', 'portrait']);
 
@@ -10,8 +11,7 @@ function isEntry(value: unknown): value is Entry {
     typeof entry.id === 'string' && /^EA-\d{2}-\d{3}$/.test(entry.id) &&
     typeof entry.edition === 'string' &&
     typeof entry.year === 'number' &&
-    entry.country && typeof entry.country.name === 'string' &&
-    /^[A-Z]{3}$/.test(entry.country.alpha3) && /^\d{3}$/.test(entry.country.numeric) &&
+    typeof entry.country === 'string' && /^[A-Z]{3}$/.test(entry.country) &&
     typeof entry.contributor === 'string' && typeof entry.registryNote === 'string' &&
     entry.reference && typeof entry.reference.label === 'string' && typeof entry.reference.url === 'string' &&
     typeof entry.registeredAt === 'string' && typeof entry.printRun === 'number' &&
@@ -23,11 +23,14 @@ if (!Array.isArray(rawEntries) || !rawEntries.every(isEntry)) {
   throw new Error('Invalid entry data in src/data/entries.json');
 }
 
+for (const entry of rawEntries) resolveCountry(entry.country);
+
 const ids = new Set(rawEntries.map((entry) => entry.id));
 if (ids.size !== rawEntries.length) throw new Error('Archive entry IDs must be unique');
 
 export const entries: Entry[] = rawEntries;
 
 export function countryCode(entry: Entry) {
-  return `${entry.country.alpha3} ${entry.country.numeric}`;
+  const country = resolveCountry(entry.country);
+  return `${country.alpha3} ${country.numeric}`;
 }
