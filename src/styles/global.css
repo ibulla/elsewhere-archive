@@ -10,9 +10,13 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: .2
 nav { display: flex; gap: 28px; }
 main { min-height: 76vh; padding: 0 28px 100px; }
 .hero { display: grid; grid-template-columns: 1fr 2fr 1fr; min-height: 66vh; padding-top: 13vh; }
-.hero h1 { font-size: clamp(70px, 12vw, 180px); font-weight: 400; letter-spacing: -.07em; line-height: .78; margin: 0; }
+.hero h1 { font-size: clamp(70px, 12vw, 180px); font-weight: 400; grid-column: 2 / -1; letter-spacing: -.07em; line-height: .78; margin: 0; }
 .hero h1 span { margin-left: 15%; }
-.hero .intro { align-self: end; font-size: 19px; max-width: 34ch; }
+.hero-details { align-self: end; grid-column: 3; }
+.hero-details p { margin: 0; }
+.hero .edition { font-family: "Courier New", monospace; font-size: 14px; letter-spacing: .045em; margin-bottom: 30px; text-transform: uppercase; }
+.hero .intro { font-size: 19px; max-width: 34ch; }
+.hero .context { font-size: 12px; margin-top: 18px; }
 .eyebrow { font-size: 12px; text-transform: uppercase; }
 .section-heading { align-items: baseline; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; margin-bottom: 50px; padding-top: 10px; }
 .section-heading h2 { font-size: 15px; font-weight: 400; margin: 0; }
@@ -52,8 +56,9 @@ footer { border-top: 1px solid var(--ink); display: flex; font-size: 12px; justi
   .site-header nav { flex-direction: column; gap: 5px; text-align: right; }
   main { padding: 0 16px 70px; }
   .hero { display: block; min-height: 70vh; padding-top: 15vh; }
-  .hero h1 { font-size: 20vw; margin: 35px 0 80px; }
+  .hero h1 { font-size: 20vw; margin: 35px 0 70px; }
   .hero h1 span { margin-left: 8%; }
+  .hero .edition { margin-bottom: 24px; }
   .section-heading { align-items: flex-start; gap: 15px; }
   .entry-grid { gap: 70px; grid-template-columns: 1fr; }
   .entry-image { height: auto; min-height: 0; }
