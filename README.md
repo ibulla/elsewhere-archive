@@ -30,7 +30,9 @@ Local development continues to use `npm install` followed by `npm run dev`. To t
 
 ## Archive data
 
-Entries live in [`src/data/entries.json`](src/data/entries.json). The TypeScript model is in [`src/types.ts`](src/types.ts), and data is checked at build time by [`src/lib/entries.ts`](src/lib/entries.ts).
+Archive content is currently maintained in [`src/data/entries.json`](src/data/entries.json). Each JSON object represents one archive entry, so editing this file changes the content shown in the archive without requiring a CMS. Entry images live in [`public/images/entries/`](public/images/entries/).
+
+Structural and design changes belong in the Astro source code under [`src/`](src/). The TypeScript model remains in [`src/types.ts`](src/types.ts), and entry data is checked at build time by [`src/lib/entries.ts`](src/lib/entries.ts). Normal pushes to `main` automatically rebuild and deploy the site through GitHub Actions.
 
 To add an entry:
 
