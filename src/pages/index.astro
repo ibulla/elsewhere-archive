@@ -14,7 +14,7 @@ const archiveEntries = entries.map((entry) => ({
 <BaseLayout>
   <section class="hero">
     <p class="eyebrow">Evolving artwork / archive</p>
-    <h1>ELSEWHERE<br /><span>ARCHIVE</span></h1>
+    <h1>ELSEWHERE</h1>
     <div class="hero-details">
       <p class="edition">Edition 01 / 2026</p>
       <p class="intro">A growing registry of postcard-sized works, places and associations.</p>
@@ -28,12 +28,12 @@ const archiveEntries = entries.map((entry) => ({
       <a href="/archive">View complete archive ({entries.length})</a>
     </div>
   </section>
-  <EntryGrid entries={entries.slice(0, 4)} />
+  <EntryGrid entries={entries.slice(0, 3)} />
   <script define:vars={{ archiveEntries }}>
     const grid = document.querySelector('.entry-grid');
     const selectionButton = document.querySelector('.selection-button');
 
-    if (grid && selectionButton && archiveEntries.length > 4) {
+    if (grid && selectionButton && archiveEntries.length > 3) {
       let currentIds = [];
 
       const chooseEntries = () => {
@@ -44,11 +44,11 @@ const archiveEntries = entries.map((entry) => ({
           [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
         }
 
-        const selection = shuffled.slice(0, 4);
+        const selection = shuffled.slice(0, 3);
         const repeatsCurrentSelection = currentIds.length > 0 &&
           selection.every((entry) => currentIds.includes(entry.id));
 
-        if (repeatsCurrentSelection) selection[3] = shuffled[4];
+        if (repeatsCurrentSelection && shuffled[3]) selection[2] = shuffled[3];
         return selection;
       };
 
