@@ -20,6 +20,14 @@ npm run dev
 
 Open `http://localhost:4321`. Create a production build with `npm run build`; its output is written to `dist/`.
 
+## Deployment
+
+Every push to `main` automatically builds and deploys the site through GitHub Actions. The workflow installs the project dependencies, creates the static production build, and uploads only the contents of `dist/` to the FTP web hosting; Kreativmedia does not need Node.js, npm, Astro, or a running server process.
+
+Configure `FTP_SERVER`, `FTP_USERNAME`, and `FTP_PASSWORD` as GitHub Actions repository secrets. If the website must be deployed below the FTP account's default directory, also configure `FTP_SERVER_DIR`. These credentials are used only by the deployment workflow and are not stored in the repository.
+
+Local development continues to use `npm install` followed by `npm run dev`. To test a production build locally, run `npm run build`.
+
 ## Archive data
 
 Entries live in [`src/data/entries.json`](src/data/entries.json). The TypeScript model is in [`src/types.ts`](src/types.ts), and data is checked at build time by [`src/lib/entries.ts`](src/lib/entries.ts).
