@@ -37,11 +37,22 @@ Structural and design changes belong in the Astro source code under [`src/`](src
 To add an entry:
 
 1. Add its image to `public/images/entries/`. Use an image close to the physical card's 1.45:1 ratio, in landscape or portrait orientation.
-2. Add a complete object to `src/data/entries.json`, following an existing record. Dates use `YYYY-MM-DD`; ISO 3166 alpha-3 and three-digit numeric codes are strings.
+2. Add a complete object to `src/data/entries.json`, following an existing record. Dates use `YYYY-MM-DD`; set `country` to the ISO 3166 alpha-3 code, for example `"country": "CHE"`.
 3. Set `image` to its root-relative public path and set `orientation` to `"landscape"` or `"portrait"`.
 4. Run `npm run build`. Entry, edition, and country pages are generated automatically.
 
 `registryNote` is the free-text place for contextual and location information. A country is metadata and is not an identifier; more than one entry may share it. A reference may use empty strings when none exists.
+
+### Country registry
+
+Entries store only an ISO alpha-3 code. The corresponding country or area name and three-digit numeric code are resolved automatically from [`src/data/countries.json`](src/data/countries.json) during the static build. For example:
+
+- Switzerland → `CHE` → `756`
+- Canada → `CAN` → `124`
+- Greece → `GRC` → `300`
+- Brazil → `BRA` → `076`
+
+The local registry is based on current ISO 3166-1 country codes and United Nations M49 data. Numeric codes are stored as three-character strings so leading zeros are preserved. Editors normally should not edit `countries.json` when adding entries; use an existing alpha-3 code in `entries.json`. If a genuinely new registry record is needed, add it centrally rather than duplicating country metadata in an entry. Invalid, unknown, or duplicate codes cause the build to fail.
 
 ## Archive identifiers
 

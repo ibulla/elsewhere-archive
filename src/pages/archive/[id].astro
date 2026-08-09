@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { countryCode, entries } from '../../lib/entries';
+import { resolveCountry } from '../../lib/countries';
 import type { Entry } from '../../types';
 
 export function getStaticPaths() {
@@ -10,6 +11,7 @@ interface Props { entry: Entry; index: number; }
 const { entry, index } = Astro.props;
 const previous = entries[index - 1];
 const next = entries[index + 1];
+const country = resolveCountry(entry.country);
 ---
 <BaseLayout title={entry.id} description={`${entry.id}, a contribution by ${entry.contributor}.`}>
   <article class="record">
@@ -21,7 +23,7 @@ const next = entries[index + 1];
     <dl class="registry-data">
       <div><dt>Archive ID</dt><dd class="archive-id">{entry.id}</dd></div>
       <div><dt>Edition</dt><dd><a href={`/edition/${entry.edition}`}>{entry.edition} / {entry.year}</a></dd></div>
-      <div><dt>Country</dt><dd><a href={`/country/${entry.country.alpha3}`}>{entry.country.name}<br /><span class="code">{countryCode(entry)}</span></a></dd></div>
+      <div><dt>Country</dt><dd><a href={`/country/${country.alpha3}`}>{country.name}<br /><span class="code">{countryCode(entry)}</span></a></dd></div>
       <div><dt>Contributor</dt><dd>{entry.contributor}</dd></div>
       <div class="wide"><dt>Registry Note</dt><dd>{entry.registryNote}</dd></div>
       <div><dt>Reference</dt><dd>{entry.reference.url ? <a class="external" href={entry.reference.url} target="_blank" rel="noreferrer">{entry.reference.label || entry.reference.url} ↗</a> : '—'}</dd></div>

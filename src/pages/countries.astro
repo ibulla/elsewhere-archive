@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { entries } from '../lib/entries';
+import { resolveCountry } from '../lib/countries';
 
-const countries = [...new Map(entries.map((entry) => [entry.country.alpha3, entry.country])).values()]
+const countries = [...new Set(entries.map((entry) => entry.country))].map(resolveCountry)
   .sort((a, b) => a.alpha3.localeCompare(b.alpha3));
 ---
 <BaseLayout title="Countries">
