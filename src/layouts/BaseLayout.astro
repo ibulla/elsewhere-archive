@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+
+interface Props { title?: string; description?: string; }
+const { title, description = 'A registry of physical postcard-sized contributions.' } = Astro.props;
+const pageTitle = title ? `${title} — ELSEWHERE ARCHIVE` : 'ELSEWHERE ARCHIVE';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="identity" href="/">ELSEWHERE ARCHIVE</a>
+      <nav aria-label="Primary navigation">
+        <a href="/archive">Archive</a>
+        <a href="/edition/01">Edition 01</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer><span>ELSEWHERE ARCHIVE</span><span>Registry / 2026</span></footer>
+  </body>
+</html>

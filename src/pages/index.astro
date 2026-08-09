@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryGrid from '../components/EntryGrid.astro';
+import { entries } from '../lib/entries';
+---
+<BaseLayout>
+  <section class="hero">
+    <p class="eyebrow">Physical contributions / permanent registry</p>
+    <h1>Edition 01<br /><span>2026</span></h1>
+    <p class="intro">An archive of postcard-sized works made elsewhere, assigned permanent identifiers and gathered by edition.</p>
+  </section>
+  <section class="section-heading">
+    <h2>Recent entries</h2><a href="/archive">View complete archive ({entries.length})</a>
+  </section>
+  <EntryGrid entries={entries.slice(0, 4)} />
+</BaseLayout>
