@@ -1,0 +1,20 @@
+---
+import type { Entry } from '../types';
+import { countryCode } from '../lib/entries';
+interface Props { entries: Entry[]; }
+const { entries } = Astro.props;
+---
+<ol class="entry-grid">
+  {entries.map((entry) => (
+    <li class:list={['entry-tile', entry.orientation]}>
+      <a href={`/archive/${entry.id}`}>
+        <div class="entry-image"><img src={entry.image} alt={`Placeholder image for ${entry.id}`} loading="lazy" /></div>
+        <div class="tile-meta">
+          <span class="code">{countryCode(entry)}</span>
+          <span>{entry.contributor}</span>
+          <span class="archive-id">{entry.id}</span>
+        </div>
+      </a>
+    </li>
+  ))}
+</ol>

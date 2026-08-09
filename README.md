@@ -1,2 +1,40 @@
-# elsewhere-archive
-A digital registry and archive for ELSEWHERE ARCHIVE — editions, contributions and places from elsewhere.
+# ELSEWHERE ARCHIVE
+
+ELSEWHERE ARCHIVE is a digital registry for an art archive of physical, postcard-sized contributions organised into editions. This repository is the intentionally small, static first phase of the archive.
+
+## Stack
+
+- [Astro](https://astro.build/) with static output
+- TypeScript in strict mode
+- Local JSON data and locally stored images
+- Plain CSS (no UI framework or client-side JavaScript)
+
+## Local development
+
+Requires Node.js 20 or newer.
+
+```sh
+npm install
+npm run dev
+```
+
+Open `http://localhost:4321`. Create a production build with `npm run build`; its output is written to `dist/`.
+
+## Archive data
+
+Entries live in [`src/data/entries.json`](src/data/entries.json). The TypeScript model is in [`src/types.ts`](src/types.ts), and data is checked at build time by [`src/lib/entries.ts`](src/lib/entries.ts).
+
+To add an entry:
+
+1. Add its image to `public/images/entries/`. Use an image close to the physical card's 1.45:1 ratio, in landscape or portrait orientation.
+2. Add a complete object to `src/data/entries.json`, following an existing record. Dates use `YYYY-MM-DD`; ISO 3166 alpha-3 and three-digit numeric codes are strings.
+3. Set `image` to its root-relative public path and set `orientation` to `"landscape"` or `"portrait"`.
+4. Run `npm run build`. Entry, edition, and country pages are generated automatically.
+
+`registryNote` is the free-text place for contextual and location information. A country is metadata and is not an identifier; more than one entry may share it. A reference may use empty strings when none exists.
+
+## Archive identifiers
+
+Permanent IDs follow `EA-[edition]-[sequence]`, for example `EA-01-001`. Edition and sequence are zero-padded. IDs must be unique and are never derived from country codes.
+
+The included records and SVGs are clearly labelled development placeholders and should be replaced as contributions are registered.

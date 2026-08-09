@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { countryCode, entries } from '../../lib/entries';
+import type { Entry } from '../../types';
+
+export function getStaticPaths() {
+  return entries.map((entry, index) => ({ params: { id: entry.id }, props: { entry, index } }));
+}
+interface Props { entry: Entry; index: number; }
+const { entry, index } = Astro.props;
+const previous = entries[index - 1];
+const next = entries[index + 1];
+---
+<BaseLayout title={entry.id} description={`${entry.id}, a contribution by ${entry.contributor}.`}>
+  <article class="record">
+    <header class="record-heading"><p class="eyebrow">Registry entry</p><h1>{entry.id}</h1><p class="code">{countryCode(entry)}</p></header>
+    <figure class:list={['record-image', entry.orientation]}><img src={entry.image} alt={`Placeholder artwork for ${entry.id}`} /></figure>
+    <dl class="registry-data">
+      <div><dt>Archive ID</dt><dd class="archive-id">{entry.id}</dd></div>
+      <div><dt>Edition</dt><dd><a href={`/edition/${entry.edition}`}>{entry.edition} / {entry.year}</a></dd></div>
+      <div><dt>Country</dt><dd><a href={`/country/${entry.country.alpha3}`}>{entry.country.name}<br /><span class="code">{countryCode(entry)}</span></a></dd></div>
+      <div><dt>Contributor</dt><dd>{entry.contributor}</dd></div>
+      <div class="wide"><dt>Registry Note</dt><dd>{entry.registryNote}</dd></div>
+      <div><dt>Reference</dt><dd>{entry.reference.url ? <a class="external" href={entry.reference.url} target="_blank" rel="noreferrer">{entry.reference.label || entry.reference.url} ↗</a> : '—'}</dd></div>
+      <div><dt>Registered At</dt><dd><time datetime={entry.registeredAt}>{entry.registeredAt}</time></dd></div>
+      <div><dt>Print Run</dt><dd>{entry.printRun}</dd></div>
+    </dl>
+    <nav class="record-nav" aria-label="Adjacent archive entries">
+      <span>{previous ? <a href={`/archive/${previous.id}`}>← Previous<br /><b>{previous.id}</b></a> : 'Beginning of archive'}</span>
+      <span>{next ? <a href={`/archive/${next.id}`}>Next →<br /><b>{next.id}</b></a> : 'End of archive'}</span>
+    </nav>
+  </article>
+</BaseLayout>

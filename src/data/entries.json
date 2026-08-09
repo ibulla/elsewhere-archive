@@ -1,0 +1,67 @@
+[
+  {
+    "id": "EA-01-001",
+    "edition": "01",
+    "year": 2026,
+    "country": { "name": "Switzerland", "alpha3": "CHE", "numeric": "756" },
+    "contributor": "Placeholder Contributor 01",
+    "registryNote": "Development record. Submitted from Zürich; replace this note and image when the physical contribution is registered.",
+    "reference": { "label": "Contributor reference", "url": "https://example.com/ea-01-001" },
+    "registeredAt": "2026-01-12",
+    "printRun": 1,
+    "image": "/images/entries/ea-01-001.svg",
+    "orientation": "landscape"
+  },
+  {
+    "id": "EA-01-002",
+    "edition": "01",
+    "year": 2026,
+    "country": { "name": "Japan", "alpha3": "JPN", "numeric": "392" },
+    "contributor": "Placeholder Contributor 02",
+    "registryNote": "Development record. A portrait-format card registered for layout testing.",
+    "reference": { "label": "", "url": "" },
+    "registeredAt": "2026-02-03",
+    "printRun": 1,
+    "image": "/images/entries/ea-01-002.svg",
+    "orientation": "portrait"
+  },
+  {
+    "id": "EA-01-003",
+    "edition": "01",
+    "year": 2026,
+    "country": { "name": "Brazil", "alpha3": "BRA", "numeric": "076" },
+    "contributor": "Placeholder Contributor 03",
+    "registryNote": "Development record. Location information may live naturally in this free-text registry note.",
+    "reference": { "label": "Project reference", "url": "https://example.com/ea-01-003" },
+    "registeredAt": "2026-02-24",
+    "printRun": 2,
+    "image": "/images/entries/ea-01-003.svg",
+    "orientation": "landscape"
+  },
+  {
+    "id": "EA-01-004",
+    "edition": "01",
+    "year": 2026,
+    "country": { "name": "Ghana", "alpha3": "GHA", "numeric": "288" },
+    "contributor": "Placeholder Contributor 04",
+    "registryNote": "Development record. Portrait-format placeholder awaiting documentation photography.",
+    "reference": { "label": "", "url": "" },
+    "registeredAt": "2026-03-16",
+    "printRun": 1,
+    "image": "/images/entries/ea-01-004.svg",
+    "orientation": "portrait"
+  },
+  {
+    "id": "EA-01-005",
+    "edition": "01",
+    "year": 2026,
+    "country": { "name": "Canada", "alpha3": "CAN", "numeric": "124" },
+    "contributor": "Placeholder Contributor 05",
+    "registryNote": "Development record for Edition 01. The image is a non-representational placeholder.",
+    "reference": { "label": "Archive reference", "url": "https://example.com/ea-01-005" },
+    "registeredAt": "2026-04-08",
+    "printRun": 3,
+    "image": "/images/entries/ea-01-005.svg",
+    "orientation": "landscape"
+  }
+]

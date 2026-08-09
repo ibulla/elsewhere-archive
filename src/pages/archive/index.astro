@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryGrid from '../../components/EntryGrid.astro';
+import { entries } from '../../lib/entries';
+---
+<BaseLayout title="Archive">
+  <header class="page-heading"><p class="eyebrow">Registry</p><h1>Archive</h1><p>{entries.length} entries</p></header>
+  <EntryGrid entries={entries} />
+</BaseLayout>

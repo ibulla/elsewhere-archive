@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryGrid from '../../components/EntryGrid.astro';
+import { entries } from '../../lib/entries';
+export function getStaticPaths() {
+  return [...new Set(entries.map((entry) => entry.edition))].map((edition) => ({ params: { edition }, props: { edition } }));
+}
+const { edition } = Astro.props;
+const editionEntries = entries.filter((entry) => entry.edition === edition);
+---
+<BaseLayout title={`Edition ${edition}`}>
+  <header class="page-heading"><p class="eyebrow">Edition / {editionEntries[0]?.year}</p><h1>Edition {edition}</h1><p>{editionEntries.length} entries</p></header>
+  <EntryGrid entries={editionEntries} />
+</BaseLayout>
