@@ -20,6 +20,9 @@ main { min-height: 76vh; padding: 0 28px 100px; }
 .eyebrow { font-size: 12px; text-transform: uppercase; }
 .section-heading { align-items: baseline; border-top: 1px solid var(--ink); display: flex; justify-content: space-between; margin-bottom: 50px; padding-top: 10px; }
 .section-heading h2 { font-size: 15px; font-weight: 400; margin: 0; }
+.section-actions { align-items: baseline; display: flex; gap: 28px; }
+.selection-button { background: none; border: 0; color: inherit; cursor: pointer; font: inherit; padding: 0; text-transform: uppercase; }
+.selection-button:hover, .selection-button:focus-visible { text-decoration: underline; text-underline-offset: .25em; }
 .entry-grid { align-items: start; display: grid; gap: 90px 4vw; grid-template-columns: repeat(3, 1fr); list-style: none; margin: 0; padding: 0; }
 .entry-tile { min-width: 0; }
 .entry-link { display: block; }
@@ -60,6 +63,7 @@ footer { border-top: 1px solid var(--ink); display: flex; font-size: 12px; justi
   .hero h1 span { margin-left: 8%; }
   .hero .edition { margin-bottom: 24px; }
   .section-heading { align-items: flex-start; gap: 15px; }
+  .section-actions { align-items: flex-end; flex-direction: column; gap: 5px; text-align: right; }
   .entry-grid { gap: 70px; grid-template-columns: 1fr; }
   .entry-image { height: auto; min-height: 0; }
   .entry-image img { height: auto; max-height: 70vh; width: 100%; }

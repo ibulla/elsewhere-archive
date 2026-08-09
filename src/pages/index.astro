@@ -1,7 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EntryGrid from '../components/EntryGrid.astro';
-import { entries } from '../lib/entries';
+import { countryCode, entries } from '../lib/entries';
+
+const archiveEntries = entries.map((entry) => ({
+  id: entry.id,
+  image: entry.image,
+  orientation: entry.orientation,
+  contributor: entry.contributor,
+  countryCode: countryCode(entry),
+}));
 ---
 <BaseLayout>
   <section class="hero">
@@ -14,7 +22,78 @@ import { entries } from '../lib/entries';
     </div>
   </section>
   <section class="section-heading">
-    <h2>Recent entries</h2><a href="/archive">View complete archive ({entries.length})</a>
+    <h2>Recent entries</h2>
+    <div class="section-actions">
+      <button class="selection-button" type="button" hidden>New selection</button>
+      <a href="/archive">View complete archive ({entries.length})</a>
+    </div>
   </section>
   <EntryGrid entries={entries.slice(0, 4)} />
+  <script define:vars={{ archiveEntries }}>
+    const grid = document.querySelector('.entry-grid');
+    const selectionButton = document.querySelector('.selection-button');
+
+    if (grid && selectionButton && archiveEntries.length > 4) {
+      let currentIds = [];
+
+      const chooseEntries = () => {
+        const shuffled = [...archiveEntries];
+
+        for (let index = shuffled.length - 1; index > 0; index -= 1) {
+          const randomIndex = Math.floor(Math.random() * (index + 1));
+          [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+        }
+
+        const selection = shuffled.slice(0, 4);
+        const repeatsCurrentSelection = currentIds.length > 0 &&
+          selection.every((entry) => currentIds.includes(entry.id));
+
+        if (repeatsCurrentSelection) selection[3] = shuffled[4];
+        return selection;
+      };
+
+      const createTile = (entry) => {
+        const item = document.createElement('li');
+        item.className = `entry-tile ${entry.orientation}`;
+
+        const link = document.createElement('a');
+        link.className = 'entry-link';
+        link.href = `/archive/${entry.id}`;
+
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'entry-image';
+        const image = document.createElement('img');
+        image.src = entry.image;
+        image.alt = `Placeholder image for ${entry.id}`;
+        image.loading = 'lazy';
+        imageContainer.append(image);
+
+        const metadata = document.createElement('div');
+        metadata.className = 'tile-meta';
+        const code = document.createElement('span');
+        code.className = 'code';
+        code.textContent = entry.countryCode;
+        const contributor = document.createElement('span');
+        contributor.textContent = entry.contributor;
+        const archiveId = document.createElement('span');
+        archiveId.className = 'archive-id';
+        archiveId.textContent = entry.id;
+        metadata.append(code, contributor, archiveId);
+
+        link.append(imageContainer, metadata);
+        item.append(link);
+        return item;
+      };
+
+      const showSelection = () => {
+        const selection = chooseEntries();
+        currentIds = selection.map((entry) => entry.id);
+        grid.replaceChildren(...selection.map(createTile));
+      };
+
+      selectionButton.hidden = false;
+      selectionButton.addEventListener('click', showSelection);
+      showSelection();
+    }
+  </script>
 </BaseLayout>
