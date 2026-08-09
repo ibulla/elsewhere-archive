@@ -4,6 +4,9 @@ import EntryGrid from '../../components/EntryGrid.astro';
 import { entries } from '../../lib/entries';
 ---
 <BaseLayout title="Archive">
-  <header class="page-heading"><p class="eyebrow">Registry</p><h1>Archive</h1><p>{entries.length} entries</p></header>
+  <header class="page-heading">
+    <h1>Archive</h1>
+    <div class="heading-meta"><span class="eyebrow">Registry</span><span>{entries.length} entries</span></div>
+  </header>
   <EntryGrid entries={entries} />
 </BaseLayout>

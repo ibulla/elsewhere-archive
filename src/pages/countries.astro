@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { entries } from '../lib/entries';
+
+const countries = [...new Map(entries.map((entry) => [entry.country.alpha3, entry.country])).values()]
+  .sort((a, b) => a.alpha3.localeCompare(b.alpha3));
+---
+<BaseLayout title="Countries">
+  <header class="page-heading">
+    <h1>Countries</h1>
+    <div class="heading-meta"><span class="eyebrow">ISO 3166 registry</span><span>{countries.length} countries</span></div>
+  </header>
+  <ol class="country-index">
+    {countries.map((country) => (
+      <li>
+        <a href={`/country/${country.alpha3}`}>
+          <span class="country-identifier code">{country.alpha3} {country.numeric}</span>
+          <span class="country-name">{country.name}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>

@@ -13,7 +13,10 @@ const next = entries[index + 1];
 ---
 <BaseLayout title={entry.id} description={`${entry.id}, a contribution by ${entry.contributor}.`}>
   <article class="record">
-    <header class="record-heading"><p class="eyebrow">Registry entry</p><h1>{countryCode(entry)}</h1><p class="archive-id">{entry.id}</p></header>
+    <header class="record-heading">
+      <h1>{countryCode(entry)}</h1>
+      <div class="heading-meta"><span class="eyebrow">Registry entry</span><span aria-hidden="true">/</span><span class="archive-id">{entry.id}</span></div>
+    </header>
     <figure class:list={['record-image', entry.orientation]}><img src={entry.image} alt={`Placeholder artwork for ${entry.id}`} /></figure>
     <dl class="registry-data">
       <div><dt>Archive ID</dt><dd class="archive-id">{entry.id}</dd></div>
