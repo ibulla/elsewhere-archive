@@ -1,2 +1,2 @@
 # elsewhere-archive
-26 pt for the entry/contributor, 11.5 pt headings, 9 pt body.
+A digital registry and archive for ELSEWHERE ARCHIVE — editions, contributions and places from elsewhere.
