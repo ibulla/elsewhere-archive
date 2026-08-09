@@ -4,11 +4,7 @@ export interface Entry {
   id: string;
   edition: string;
   year: number;
-  country: {
-    name: string;
-    alpha3: string;
-    numeric: string;
-  };
+  country: string;
   contributor: string;
   registryNote: string;
   reference: {
@@ -19,4 +15,10 @@ export interface Entry {
   printRun: number;
   image: string;
   orientation: Orientation;
+}
+
+export interface Country {
+  name: string;
+  alpha3: string;
+  numeric: string;
 }

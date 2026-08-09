@@ -2,12 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EntryGrid from '../../components/EntryGrid.astro';
 import { entries } from '../../lib/entries';
+import { resolveCountry } from '../../lib/countries';
 export function getStaticPaths() {
-  return [...new Set(entries.map((entry) => entry.country.alpha3))].map((code) => ({ params: { code }, props: { code } }));
+  return [...new Set(entries.map((entry) => entry.country))].map((code) => ({ params: { code }, props: { code } }));
 }
 const { code } = Astro.props;
-const countryEntries = entries.filter((entry) => entry.country.alpha3 === code);
-const country = countryEntries[0].country;
+const countryEntries = entries.filter((entry) => entry.country === code);
+const country = resolveCountry(code);
 ---
 <BaseLayout title={country.name}>
   <header class="page-heading">
