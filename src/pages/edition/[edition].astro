@@ -9,6 +9,9 @@ const { edition } = Astro.props;
 const editionEntries = entries.filter((entry) => entry.edition === edition);
 ---
 <BaseLayout title={`Edition ${edition}`}>
-  <header class="page-heading"><p class="eyebrow">Edition / {editionEntries[0]?.year}</p><h1>Edition {edition}</h1><p>{editionEntries.length} entries</p></header>
+  <header class="page-heading">
+    <h1>Edition {edition}</h1>
+    <div class="heading-meta"><span class="eyebrow">Edition / {editionEntries[0]?.year}</span><span>{editionEntries.length} entries</span></div>
+  </header>
   <EntryGrid entries={editionEntries} />
 </BaseLayout>

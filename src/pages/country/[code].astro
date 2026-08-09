@@ -10,6 +10,9 @@ const countryEntries = entries.filter((entry) => entry.country.alpha3 === code);
 const country = countryEntries[0].country;
 ---
 <BaseLayout title={country.name}>
-  <header class="page-heading"><p class="eyebrow">Country / ISO 3166</p><h1>{country.name}</h1><p class="code">{country.alpha3} {country.numeric} / {countryEntries.length} {countryEntries.length === 1 ? 'entry' : 'entries'}</p></header>
+  <header class="page-heading">
+    <h1>{country.name}</h1>
+    <div class="heading-meta"><span class="eyebrow">Country / ISO 3166</span><span class="code">{country.alpha3} {country.numeric} / {countryEntries.length} {countryEntries.length === 1 ? 'entry' : 'entries'}</span></div>
+  </header>
   <EntryGrid entries={countryEntries} />
 </BaseLayout>
