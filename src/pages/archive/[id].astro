@@ -17,6 +17,18 @@ const references = [
   entry.references.instagram && { label: 'Instagram', url: instagramUrl(entry.references.instagram) },
   entry.references.facebook && { label: 'Facebook', url: entry.references.facebook }
 ].filter(Boolean) as { label: string; url: string }[];
+
+// Registry notes intentionally support only a tiny, safe Markdown subset:
+// *text* becomes <em>text</em>. Everything else remains plain text.
+function registryNoteHtml(value: string) {
+  const escaped = value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+  return escaped.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+}
 ---
 <BaseLayout title={entry.id} description={`${entry.id}, a contribution by ${entry.contributor}.`}>
   <article class="record">
@@ -30,7 +42,7 @@ const references = [
       <div><dt>Edition</dt><dd><a href={`/edition/${entry.edition}`}>{entry.edition} / {entry.year}</a></dd></div>
       <div><dt>Country</dt><dd><a href={`/country/${country.alpha3}`}>{country.name}<br /><span class="code">{countryCode(entry)}</span></a></dd></div>
       <div><dt>Contributor</dt><dd>{entry.contributor}</dd></div>
-      <div class="wide"><dt>Registry Note</dt><dd class="registry-note">{entry.registryNote}</dd></div>
+      <div class="wide"><dt>Registry Note</dt><dd class="registry-note" set:html={registryNoteHtml(entry.registryNote)} /></div>
       <div><dt>Reference</dt><dd>{references.length ? references.map((reference, i) => <>{i > 0 && ' / '}<a class="external" href={reference.url} target="_blank" rel="noreferrer">{reference.label} ↗</a></>) : '—'}</dd></div>
       <div><dt>Registered At</dt><dd class="registered-at">{entry.registeredAt}</dd></div>
       <div><dt>Print Run</dt><dd>{entry.printRun}</dd></div>
