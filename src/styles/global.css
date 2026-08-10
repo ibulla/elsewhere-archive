@@ -10,7 +10,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: .2
 nav { display: flex; gap: 28px; }
 main { min-height: 76vh; padding: 0 28px 100px; }
 .hero { display: grid; grid-template-columns: 1fr 2fr 1fr; min-height: 66vh; padding-top: 13vh; }
-.hero h1 { font-size: clamp(70px, 12vw, 180px); font-weight: 400; grid-column: 2 / -1; letter-spacing: -.07em; line-height: .78; margin: 0; }
+.hero h1 { font-size: clamp(50px, 8vw, 120px); font-weight: 400; grid-column: 2 / -1; letter-spacing: -.07em; line-height: .78; margin: 0; }
 .hero h1 span { margin-left: 15%; }
 .hero-details { align-self: end; grid-column: 3; }
 .hero-details p { margin: 0; }
@@ -59,7 +59,7 @@ footer { border-top: 1px solid var(--ink); display: flex; font-size: 12px; justi
   .site-header nav { flex-direction: column; gap: 5px; text-align: right; }
   main { padding: 0 16px 70px; }
   .hero { display: block; min-height: 70vh; padding-top: 15vh; }
-  .hero h1 { font-size: 20vw; margin: 35px 0 70px; }
+  .hero h1 { margin: 35px 0 70px; }
   .hero h1 span { margin-left: 8%; }
   .hero .edition { margin-bottom: 24px; }
   .section-heading { align-items: flex-start; gap: 15px; }
