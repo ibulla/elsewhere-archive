@@ -1,5 +1,11 @@
 export type Orientation = 'landscape' | 'portrait';
 
+export interface EntryReferences {
+  web?: string;
+  instagram?: string;
+  facebook?: string;
+}
+
 export interface Entry {
   id: string;
   edition: string;
@@ -7,10 +13,7 @@ export interface Entry {
   country: string;
   contributor: string;
   registryNote: string;
-  reference: {
-    label: string;
-    url: string;
-  };
+  references: EntryReferences;
   registeredAt: string;
   printRun: number;
   image: string;
