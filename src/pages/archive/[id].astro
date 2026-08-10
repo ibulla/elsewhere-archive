@@ -25,9 +25,9 @@ const country = resolveCountry(entry.country);
       <div><dt>Edition</dt><dd><a href={`/edition/${entry.edition}`}>{entry.edition} / {entry.year}</a></dd></div>
       <div><dt>Country</dt><dd><a href={`/country/${country.alpha3}`}>{country.name}<br /><span class="code">{countryCode(entry)}</span></a></dd></div>
       <div><dt>Contributor</dt><dd>{entry.contributor}</dd></div>
-      <div class="wide"><dt>Registry Note</dt><dd>{entry.registryNote}</dd></div>
+      <div class="wide"><dt>Registry Note</dt><dd class="registry-note">{entry.registryNote}</dd></div>
       <div><dt>Reference</dt><dd>{entry.reference.url ? <a class="external" href={entry.reference.url} target="_blank" rel="noreferrer">{entry.reference.label || entry.reference.url} ↗</a> : '—'}</dd></div>
-      <div><dt>Registered At</dt><dd><time datetime={entry.registeredAt}>{entry.registeredAt}</time></dd></div>
+      <div><dt>Registered At</dt><dd class="registered-at">{entry.registeredAt}</dd></div>
       <div><dt>Print Run</dt><dd>{entry.printRun}</dd></div>
     </dl>
     <nav class="record-nav" aria-label="Adjacent archive entries">
