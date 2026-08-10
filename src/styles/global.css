@@ -47,6 +47,7 @@ main { min-height: 76vh; padding: 0 28px 100px; }
 .registry-data .wide { grid-column: span 2; }
 dt { font-size: 11px; margin-bottom: 24px; text-transform: uppercase; }
 dd { font-size: 17px; margin: 0; max-width: 40ch; }
+.registry-note, .registered-at { white-space: pre-line; }
 .external { text-decoration: underline; text-underline-offset: .25em; }
 .record-nav { display: grid; grid-template-columns: 1fr 1fr; padding-top: 70px; }
 .record-nav span:last-child { text-align: right; }
