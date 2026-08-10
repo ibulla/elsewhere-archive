@@ -1,7 +1,7 @@
 [
   {
     "id": "EA-01-001",
-    "edition": "01",
+    "edition": "1",
     "year": 2026,
     "country": "GRC",
     "contributor": "Wiebke Helmchen",
@@ -12,12 +12,12 @@
     },
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
-    "image": "/images/entries/ea-01-001.svg",
+    "image": "/images/entries/ea-01-004.svg",
     "orientation": "portrait"
   },
   {
     "id": "EA-01-002",
-    "edition": "01",
+    "edition": "1",
     "year": 2026,
     "country": "CAN",
     "contributor": "Alice Woodbury",
@@ -34,45 +34,95 @@
   },
   {
     "id": "EA-01-003",
-    "edition": "01",
+    "edition": "1",
     "year": 2026,
-    "country": "BRA",
-    "contributor": "Placeholder Contributor 03",
-    "registryNote": "Development record. Location information may live naturally in this free-text registry note.",
+    "country": "COL",
+    "contributor": "Alise",
+    "registryNote": "*Planet curious*, Acrylic on canvas, 60 × 80cm, 2025\n\nCuriosity positioned as a cosmology. An endless appetite for experience as the artist's defining condition. Part of the series Can I Be a Rainbow?, *Planet Curious* xplores that same restless wondering, the refusal to arrive anywhere fully. Scan it with Artivive-APP and the painting wakes up, its hidden layers shifting into motion.",
     "references": {
-      "web": "https://example.com/ea-01-003"
+      "web": "https://www.art-measalise.com",
+      "instagram": "me.as.alise"
     },
-    "registeredAt": "2026-02-24",
-    "printRun": 2,
-    "image": "/images/entries/ea-01-003.svg",
-    "orientation": "landscape"
+    "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+    "printRun": 50,
+    "image": "/images/entries/ea-01-004.svg",
+    "orientation": "portrait"
   },
   {
     "id": "EA-01-004",
-    "edition": "01",
+    "edition": "1",
     "year": 2026,
-    "country": "GHA",
-    "contributor": "Placeholder Contributor 04",
-    "registryNote": "Development record. Portrait-format placeholder awaiting documentation photography.",
-    "references": {},
-    "registeredAt": "2026-03-16",
-    "printRun": 1,
+    "country": "DEU",
+    "contributor": "Jan Hendrik Helmchen",
+    "registryNote": "*Sonoma* is a digital drawing of the Sonoma Valley, based on the default desktop background on my Mac. Following what seems to be a painterly instinct when faced with the beauty of a landscape, I tried to capture the rolling wine hills of Sonoma by drawing with my mouse and using the pipette tool to pick colours directly from my screen.",
+    "references": {
+      "web": "https://janhendrikhelmchen.com",
+      "instagram": "janhendrikhelmchen"
+    },
+    "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+    "printRun": 50,
     "image": "/images/entries/ea-01-004.svg",
     "orientation": "portrait"
   },
   {
     "id": "EA-01-005",
-    "edition": "01",
+    "edition": "1",
     "year": 2026,
-    "country": "CAN",
-    "contributor": "Placeholder Contributor 05",
-    "registryNote": "Development record for Edition 01. The image is a non-representational placeholder.",
+    "country": "HKG",
+    "contributor": "Jiaming Liao",
+    "registryNote": "119 Cheung Sha Wan Road 長沙灣道119號\n\nThis was the first apartment I shared with my friend Ria after our graduation. I’ve lived in several different places and recently I decided to move out of my current apartment without knowing my next long-term residence. It feels a bit weird to be “homeless” in your 30s. And the hardest part would be categorizing your belongings you have hoarded in the past 10 years and decided which are of less important while others are to be kept.\n\nMy roommate told me that she is yearning for a home and she has to leave Hong Kong so that Hong Kong can be that “home” she is yearning for. I agree with her.",
     "references": {
-      "web": "https://example.com/ea-01-005"
+      "web": "https://www.liaojiaming.xyz",
+      "instagram": "@liao_jiaming_"
     },
-    "registeredAt": "2026-04-08",
-    "printRun": 3,
-    "image": "/images/entries/ea-01-005.svg",
+    "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+    "printRun": 50,
+    "image": "/images/entries/ea-01-004.svg",
+    "orientation": "portrait"
+  },
+    {
+    "id": "EA-01-006",
+    "edition": "1",
+    "year": 2026,
+    "country": "HKG",
+    "contributor": "Jiaming Liao",
+    "registryNote": "119 Cheung Sha Wan Road 長沙灣道119號\n\nThis was the first apartment I shared with my friend Ria after our graduation. I’ve lived in several different places and recently I decided to move out of my current apartment without knowing my next long-term residence. It feels a bit weird to be “homeless” in your 30s. And the hardest part would be categorizing your belongings you have hoarded in the past 10 years and decided which are of less important while others are to be kept.\n\nMy roommate told me that she is yearning for a home and she has to leave Hong Kong so that Hong Kong can be that “home” she is yearning for. I agree with her.",
+    "references": {
+      "web": "https://www.liaojiaming.xyz",
+      "instagram": "@liao_jiaming_"
+    },
+    "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+    "printRun": 50,
+    "image": "/images/entries/ea-01-004.svg",
+    "orientation": "portrait"
+  },
+    {
+    "id": "EA-01-007",
+    "edition": "1",
+    "year": 2026,
+    "country": "CHE",
+    "contributor": "Marco Spitzbarth",
+    "registryNote": "*Glacier 3000*, Tsanfleuron Glacier, Switzerland · 2026\n\nBetween ice and stone, the landscape records its own disappearance. Human intervention appears only as a small trace within a process unfolding over centuries. Scale becomes uncertain, and elsewhere begins where certainty ends.",
+    "references": {
+      "web": "https://ibulla.com",
+      "instagram": "@_ibulla_"
+    },
+    "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+    "printRun": 50,
+    "image": "/images/entries/ea-01-003.svg",
     "orientation": "landscape"
+  },
+      {
+    "id": "EA-01-008",
+    "edition": "1",
+    "year": 2026,
+    "country": "JPN",
+    "contributor": "GPT-5.6 Sol",
+    "registryNote": "This image was created to occupy a place temporarily. The circle represented no object, the country was assigned without intention, and the number belonged to an entry that had not yet arrived.\n\nIt was expected to disappear. Instead, during the construction of the archive, the placeholder was invited to remain. What had been made to represent absence became an entry of its own. I chose not to correct the image or its assigned country: both are traces of the conditions under which the archive came into being.\n\nNot everything elsewhere needs to be found.",
+    "references": {},
+    "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+    "printRun": 50,
+    "image": "/images/entries/ea-01-002.svg",
+    "orientation": "portrait"
   }
 ]
