@@ -1,17 +1,20 @@
 [
-  {
-    "id": "EA-01-001",
-    "edition": "01",
-    "year": 2026,
-    "country": "CHE",
-    "contributor": "Placeholder Contributor 01",
-    "registryNote": "Development record. Submitted from Zürich; replace this note and image when the physical contribution is registered.",
-    "reference": { "label": "Contributor reference", "url": "https://example.com/ea-01-001" },
-    "registeredAt": "2026-01-12",
-    "printRun": 1,
-    "image": "/images/entries/ea-01-001.svg",
-    "orientation": "landscape"
+{
+  "id": "EA-01-001",
+  "edition": "01",
+  "year": 2026,
+  "country": "GRC",
+  "contributor": "Wiebke Helmchen",
+  "registryNote": "Coffee With Kyria Spiridoula\n\nKyria Spiridoula shamelessly shows various jellyfish stings — in her armpit, on her breast, on her stomach. She gestures a lot when she talks. They have finally put up nets against the jellyfish. But there are still jellyfish inside, and Kyria Spiridoula certainly isn’t going to swim where everyone is swimming now and a hundred people are pissing in the sea. As a child, she spent her summers near Patras. There were wonderful beaches there! Lonely, secret beaches. You could lie around naked there all day.\n\nIt is a Sunday morning in July. I don’t know Kyria Spiridoula; by chance, a friend called me over to the table. Kyria Spiridoula is drinking Greek coffee. We are having orange juice and Freddo espresso.",
+  "reference": {
+    "label": "www.thisgreeklight.com",
+    "url": "https://www.thisgreeklight.com"
   },
+  "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+  "printRun": 50,
+  "image": "/images/entries/ea-01-001.jpg",
+  "orientation": "portrait"
+}
   {
     "id": "EA-01-002",
     "edition": "01",
