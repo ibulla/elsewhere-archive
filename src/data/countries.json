@@ -4,5 +4,9 @@
   { "name": "Switzerland", "alpha3": "CHE", "numeric": "756" },
   { "name": "Ghana", "alpha3": "GHA", "numeric": "288" },
   { "name": "Greece", "alpha3": "GRC", "numeric": "300" },
-  { "name": "Japan", "alpha3": "JPN", "numeric": "392" }
+  { "name": "Japan", "alpha3": "JPN", "numeric": "392" },
+  { "name": "Colombia", "alpha3": "COL", "numeric": "170" },
+  { "name": "Canada", "alpha3": "CAN", "numeric": "124" },
+  { "name": "Hong Kong", "alpha3": "HKG", "numeric": "344" },
+  { "name": "Germany", "alpha3": "DEU", "numeric": "276" }
 ]
