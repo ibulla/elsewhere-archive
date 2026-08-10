@@ -7,5 +7,5 @@
   { "name": "Greece", "alpha3": "GRC", "numeric": "300" },
   { "name": "Hong Kong", "alpha3": "HKG", "numeric": "344" },
   { "name": "Japan", "alpha3": "JPN", "numeric": "392" },
-  { "name": "Switzerland", "alpha3": "CHE", "numeric": "756" },
+  { "name": "Switzerland", "alpha3": "CHE", "numeric": "756" }
 ]
