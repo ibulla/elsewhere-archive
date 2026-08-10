@@ -7,25 +7,30 @@
     "contributor": "Wiebke Helmchen",
     "registryNote": "Coffee With Kyria Spiridoula\n\nKyria Spiridoula shamelessly shows various jellyfish stings — in her armpit, on her breast, on her stomach. She gestures a lot when she talks. They have finally put up nets against the jellyfish. But there are still jellyfish inside, and Kyria Spiridoula certainly isn’t going to swim where everyone is swimming now and a hundred people are pissing in the sea. As a child, she spent her summers near Patras. There were wonderful beaches there! Lonely, secret beaches. You could lie around naked there all day.\n\nIt is a Sunday morning in July. I don’t know Kyria Spiridoula; by chance, a friend called me over to the table. Kyria Spiridoula is drinking Greek coffee. We are having orange juice and Freddo espresso.",
     "references": {
-      "web": "https://www.thisgreeklight.com"
+      "web": "https://www.thisgreeklight.com",
+      "instagram": "@thisgreeklight"
     },
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
-    "image": "/images/entries/ea-01-001.jpg",
+    "image": "/images/entries/ea-01-001.svg",
     "orientation": "portrait"
   },
   {
     "id": "EA-01-002",
     "edition": "01",
     "year": 2026,
-    "country": "JPN",
-    "contributor": "Placeholder Contributor 02",
-    "registryNote": "Development record. A portrait-format card registered for layout testing.",
-    "references": {},
-    "registeredAt": "2026-02-03",
-    "printRun": 1,
-    "image": "/images/entries/ea-01-002.svg",
-    "orientation": "portrait"
+    "country": "CAN",
+    "contributor": "Alice Woodbury",
+    "registryNote": "*All in this Together*, was inspired by the tough times that we go through in our lives, not just as individuals but together as a community. Last year, my home province of Nova Scotia suffered through a terrible drought, and with it horrific wildfires. But we as people stand strong and tall through it all, just like our beautiful buildings, which can be seen in this piece.",
+    "references": {
+      "web": "https://www.littlebluenoseillustrations.ca",
+      "instagram": "littlebluenoseillustrations",
+      "facebook": "https://www.facebook.com/littlebluenose"
+    },
+    "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
+    "printRun": 50,
+    "image": "/images/entries/ea-01-003.svg",
+    "orientation": "landscape"
   },
   {
     "id": "EA-01-003",
