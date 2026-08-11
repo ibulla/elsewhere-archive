@@ -28,6 +28,12 @@ main { min-height: 76vh; padding: 0 28px 100px; }
 .entry-link { display: block; }
 .entry-image { align-items: center; display: flex; height: min(21vw, 340px); justify-content: center; margin-bottom: 16px; width: 100%; }
 .entry-image img { display: block; height: 100%; max-width: 100%; object-fit: contain; width: 100%; }
+.pending-image { aspect-ratio: 1.45 / 1; background: #d7d7d2; display: grid; overflow: hidden; position: relative; width: 100%; }
+.pending-noise { display: block; grid-area: 1 / 1; height: 100%; image-rendering: pixelated; opacity: .78; width: 100%; }
+.pending-image::after { background: repeating-linear-gradient(to bottom, transparent 0, transparent 5px, rgba(255,255,255,.06) 6px); content: ""; grid-area: 1 / 1; pointer-events: none; }
+.pending-label { align-self: end; background: rgba(248,248,246,.82); font-family: "Courier New", monospace; font-size: 10px; grid-area: 1 / 1; justify-self: start; letter-spacing: .045em; margin: 10px; padding: 3px 5px; position: relative; text-transform: uppercase; z-index: 1; }
+.entry-tile.pending .entry-image { align-items: center; }
+.pending-image-detail { width: min(100%, 1200px); }
 .tile-meta { border-top: 1px solid var(--ink); display: grid; font-size: 13px; gap: 5px; grid-template-columns: 1fr auto; padding-top: 8px; width: 100%; }
 .tile-meta .code { grid-column: 1 / -1; }
 .page-heading, .record-heading { padding: clamp(70px, 10vh, 120px) 0 clamp(45px, 7vh, 75px); }
@@ -42,6 +48,7 @@ main { min-height: 76vh; padding: 0 28px 100px; }
 .record-image img { display: block; max-height: 78vh; max-width: 100%; object-fit: contain; }
 .record-image.landscape img { width: min(100%, 1200px); }
 .record-image.portrait img { width: min(68%, 720px); }
+.record-image.pending { align-items: center; }
 .registry-data { border-top: 1px solid var(--ink); display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; }
 .registry-data div { border-bottom: 1px solid var(--line); min-height: 130px; padding: 10px 25px 30px 0; }
 .registry-data .wide { grid-column: span 2; }
@@ -71,6 +78,7 @@ footer { border-top: 1px solid var(--ink); display: flex; font-size: 12px; justi
   .entry-image { height: auto; min-height: 0; }
   .entry-image img { height: auto; max-height: 70vh; width: 100%; }
   .entry-tile.portrait .entry-image img { width: 70%; }
+  .pending-image { width: 100%; }
   .page-heading, .record-heading { padding: 11vh 0 55px; }
   .heading-meta { flex-wrap: wrap; }
   .country-index { grid-template-columns: 1fr; }
