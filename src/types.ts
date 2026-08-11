@@ -1,4 +1,5 @@
 export type Orientation = 'landscape' | 'portrait';
+export type EntryVisibility = 'public' | 'pending';
 
 export interface EntryReferences {
   web?: string;
@@ -18,6 +19,7 @@ export interface Entry {
   printRun: number;
   image: string;
   orientation: Orientation;
+  visibility: EntryVisibility;
 }
 
 export interface Country {
