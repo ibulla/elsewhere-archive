@@ -3,6 +3,7 @@ import type { Entry } from '../types';
 import { resolveCountry } from './countries';
 
 const orientations = new Set(['landscape', 'portrait']);
+const visibilities = new Set(['public', 'pending']);
 
 function isOptionalString(value: unknown) {
   return value === undefined || typeof value === 'string';
@@ -22,7 +23,8 @@ function isEntry(value: unknown): value is Entry {
     isOptionalString(entry.references.instagram) &&
     isOptionalString(entry.references.facebook) &&
     typeof entry.registeredAt === 'string' && typeof entry.printRun === 'number' &&
-    typeof entry.image === 'string' && entry.orientation && orientations.has(entry.orientation)
+    typeof entry.image === 'string' && entry.orientation && orientations.has(entry.orientation) &&
+    entry.visibility && visibilities.has(entry.visibility)
   );
 }
 
