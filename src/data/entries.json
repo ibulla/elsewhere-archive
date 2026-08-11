@@ -13,7 +13,8 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-004.svg",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "visibility": "public"
   },
   {
     "id": "EA-01-002",
@@ -30,7 +31,8 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-003.svg",
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "visibility": "public"
   },
   {
     "id": "EA-01-003",
@@ -46,7 +48,8 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-004.svg",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "visibility": "public"
   },
   {
     "id": "EA-01-004",
@@ -62,7 +65,8 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-004.svg",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "visibility": "public"
   },
   {
     "id": "EA-01-005",
@@ -78,9 +82,10 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-004.svg",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "visibility": "public"
   },
-    {
+  {
     "id": "EA-01-006",
     "edition": "01",
     "year": 2026,
@@ -94,9 +99,10 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-004.svg",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "visibility": "public"
   },
-    {
+  {
     "id": "EA-01-007",
     "edition": "01",
     "year": 2026,
@@ -110,9 +116,10 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-003.svg",
-    "orientation": "landscape"
+    "orientation": "landscape",
+    "visibility": "public"
   },
-      {
+  {
     "id": "EA-01-008",
     "edition": "01",
     "year": 2026,
@@ -123,6 +130,7 @@
     "registeredAt": "ENDSAFTER\nHardturmstrasse 307\n8005 Zürich, Switzerland",
     "printRun": 50,
     "image": "/images/entries/ea-01-002.svg",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "visibility": "public"
   }
 ]
