@@ -36,7 +36,16 @@ function registryNoteHtml(value: string) {
       <h1>{countryCode(entry)}</h1>
       <div class="heading-meta"><span class="eyebrow">Registry entry</span><span aria-hidden="true">/</span><span class="archive-id">{entry.id}</span></div>
     </header>
-    <figure class:list={['record-image', entry.orientation]}><img src={entry.image} alt={`Artwork for ${entry.id}`} /></figure>
+    <figure class:list={['record-image', entry.visibility === 'pending' ? 'pending' : entry.orientation]}>
+      {entry.visibility === 'pending' ? (
+        <div class="pending-image pending-image-detail" aria-label={`Image pending registration for ${entry.id}`} role="img">
+          <canvas class="pending-noise" aria-hidden="true"></canvas>
+          <span class="pending-label">Image pending registration</span>
+        </div>
+      ) : (
+        <img src={entry.image} alt={`Artwork for ${entry.id}`} />
+      )}
+    </figure>
     <dl class="registry-data">
       <div><dt>Archive ID</dt><dd class="archive-id">{entry.id}</dd></div>
       <div><dt>Edition</dt><dd><a href={`/edition/${entry.edition}`}>{entry.edition} / {entry.year}</a></dd></div>
@@ -52,4 +61,33 @@ function registryNoteHtml(value: string) {
       <span>{next ? <a href={`/archive/${next.id}`}>Next →<br /><b>{next.id}</b></a> : 'End of archive'}</span>
     </nav>
   </article>
+
+  {entry.visibility === 'pending' && (
+    <script>
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll<HTMLCanvasElement>('.pending-noise').forEach((canvas) => {
+        const context = canvas.getContext('2d', { alpha: false });
+        if (!context) return;
+        const render = () => {
+          const width = Math.max(1, Math.floor(canvas.clientWidth / 4));
+          const height = Math.max(1, Math.floor(canvas.clientHeight / 4));
+          if (canvas.width !== width || canvas.height !== height) {
+            canvas.width = width;
+            canvas.height = height;
+          }
+          const frame = context.createImageData(width, height);
+          for (let i = 0; i < frame.data.length; i += 4) {
+            const value = 205 + Math.floor(Math.random() * 38);
+            frame.data[i] = value;
+            frame.data[i + 1] = value;
+            frame.data[i + 2] = value;
+            frame.data[i + 3] = 255;
+          }
+          context.putImageData(frame, 0, 0);
+        };
+        render();
+        if (!reducedMotion) window.setInterval(render, 420);
+      });
+    </script>
+  )}
 </BaseLayout>
