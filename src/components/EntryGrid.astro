@@ -6,9 +6,18 @@ const { entries } = Astro.props;
 ---
 <ol class="entry-grid">
   {entries.map((entry) => (
-    <li class:list={['entry-tile', entry.orientation]}>
+    <li class:list={['entry-tile', entry.orientation, entry.visibility === 'pending' && 'pending']}>
       <a class="entry-link" href={`/archive/${entry.id}`}>
-        <div class="entry-image"><img src={entry.image} alt={`Placeholder image for ${entry.id}`} loading="lazy" /></div>
+        <div class="entry-image">
+          {entry.visibility === 'pending' ? (
+            <div class="pending-image" aria-label={`Image pending registration for ${entry.id}`} role="img">
+              <canvas class="pending-noise" aria-hidden="true"></canvas>
+              <span class="pending-label">Image pending registration</span>
+            </div>
+          ) : (
+            <img src={entry.image} alt={`Artwork for ${entry.id}`} loading="lazy" />
+          )}
+        </div>
         <div class="tile-meta">
           <span class="code">{countryCode(entry)}</span>
           <span>{entry.contributor}</span>
@@ -18,3 +27,38 @@ const { entries } = Astro.props;
     </li>
   ))}
 </ol>
+
+<script>
+  function initPendingNoise() {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll<HTMLCanvasElement>('.pending-noise').forEach((canvas) => {
+      const context = canvas.getContext('2d', { alpha: false });
+      if (!context) return;
+
+      const render = () => {
+        const width = Math.max(1, Math.floor(canvas.clientWidth / 4));
+        const height = Math.max(1, Math.floor(canvas.clientHeight / 4));
+        if (canvas.width !== width || canvas.height !== height) {
+          canvas.width = width;
+          canvas.height = height;
+        }
+
+        const frame = context.createImageData(width, height);
+        for (let i = 0; i < frame.data.length; i += 4) {
+          const value = 205 + Math.floor(Math.random() * 38);
+          frame.data[i] = value;
+          frame.data[i + 1] = value;
+          frame.data[i + 2] = value;
+          frame.data[i + 3] = 255;
+        }
+        context.putImageData(frame, 0, 0);
+      };
+
+      render();
+      if (!reducedMotion) window.setInterval(render, 420);
+    });
+  }
+
+  initPendingNoise();
+</script>
