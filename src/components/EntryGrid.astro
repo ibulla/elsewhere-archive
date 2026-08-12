@@ -56,7 +56,16 @@ const { entries } = Astro.props;
       };
 
       render();
-      if (!reducedMotion) window.setInterval(render, 420);
+      if (!reducedMotion) {
+        const scheduleNext = () => {
+          const delay = 1800 + Math.random() * 3200;
+          window.setTimeout(() => {
+            render();
+            scheduleNext();
+          }, delay);
+        };
+        window.setTimeout(scheduleNext, Math.random() * 1800);
+      }
     });
   }
 
