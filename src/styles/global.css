@@ -44,6 +44,12 @@ main { min-height: 76vh; padding: 0 28px 100px; }
 .country-index a { display: flex; flex-direction: column; min-height: 150px; padding: 12px 20px 28px 0; }
 .country-identifier { font-size: clamp(25px, 3vw, 43px); }
 .country-name { font-size: 13px; margin-top: auto; }
+.edition-index { border-bottom: 1px solid var(--ink); list-style: none; margin: 0; padding: 0; }
+.edition-index li { border-top: 1px solid var(--ink); }
+.edition-index a { align-items: baseline; display: grid; gap: 18px; grid-template-columns: minmax(220px, 2fr) 1fr 1fr auto; padding: 16px 0 34px; }
+.edition-number { font-size: clamp(28px, 4vw, 56px); letter-spacing: -.04em; }
+.edition-year, .edition-count, .edition-pending { font-family: "Courier New", monospace; font-size: 12px; letter-spacing: .045em; text-transform: uppercase; }
+.edition-pending { justify-self: end; }
 .record-image { display: flex; justify-content: center; margin: 0; padding: 5vh 0 12vh; }
 .record-image img { display: block; max-height: 78vh; max-width: 100%; object-fit: contain; }
 .record-image.landscape img { width: min(100%, 1200px); }
@@ -82,6 +88,10 @@ footer { border-top: 1px solid var(--ink); display: flex; font-size: 12px; justi
   .page-heading, .record-heading { padding: 11vh 0 55px; }
   .heading-meta { flex-wrap: wrap; }
   .country-index { grid-template-columns: 1fr; }
+  .edition-index a { gap: 7px; grid-template-columns: 1fr auto; }
+  .edition-number { grid-column: 1 / -1; }
+  .edition-year, .edition-count { align-self: end; }
+  .edition-pending { grid-column: 1 / -1; justify-self: start; }
   .record-image { padding: 3vh 0 10vh; }
   .record-image.portrait img { width: 82%; }
   .registry-data { grid-template-columns: 1fr 1fr; }
