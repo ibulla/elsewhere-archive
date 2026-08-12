@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { entries } from '../lib/entries';
+
+const editions = [...new Set(entries.map((entry) => entry.edition))]
+  .map((edition) => {
+    const editionEntries = entries.filter((entry) => entry.edition === edition);
+    return {
+      edition,
+      year: editionEntries[0]?.year,
+      count: editionEntries.length,
+      pending: editionEntries.filter((entry) => entry.visibility === 'pending').length,
+    };
+  })
+  .sort((a, b) => b.edition.localeCompare(a.edition, undefined, { numeric: true }));
+---
+<BaseLayout title="Editions" description="Browse the editions of ELSEWHERE ARCHIVE.">
+  <header class="page-heading">
+    <h1>EDITIONS</h1>
+    <div class="heading-meta"><span class="eyebrow">Archive editions</span><span>{editions.length} total</span></div>
+  </header>
+
+  <ol class="edition-index">
+    {editions.map((item) => (
+      <li>
+        <a href={`/edition/${item.edition}`}>
+          <span class="edition-number">Edition {item.edition}</span>
+          <span class="edition-year">{item.year}</span>
+          <span class="edition-count">{item.count} {item.count === 1 ? 'entry' : 'entries'}</span>
+          {item.pending > 0 && <span class="edition-pending">{item.pending} pending</span>}
+        </a>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>
