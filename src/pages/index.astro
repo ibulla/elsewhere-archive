@@ -7,6 +7,7 @@ const archiveEntries = entries.map((entry) => ({
   id: entry.id,
   image: entry.image,
   orientation: entry.orientation,
+  visibility: entry.visibility,
   contributor: entry.contributor,
   countryCode: countryCode(entry),
 }));
@@ -32,6 +33,44 @@ const archiveEntries = entries.map((entry) => ({
   <script define:vars={{ archiveEntries }}>
     const grid = document.querySelector('.entry-grid');
     const selectionButton = document.querySelector('.selection-button');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const startNoise = (canvas) => {
+      const context = canvas.getContext('2d', { alpha: false });
+      if (!context) return;
+
+      const render = () => {
+        const width = Math.max(1, Math.floor(canvas.clientWidth / 4));
+        const height = Math.max(1, Math.floor(canvas.clientHeight / 4));
+        if (canvas.width !== width || canvas.height !== height) {
+          canvas.width = width;
+          canvas.height = height;
+        }
+
+        const frame = context.createImageData(width, height);
+        for (let i = 0; i < frame.data.length; i += 4) {
+          const value = 205 + Math.floor(Math.random() * 38);
+          frame.data[i] = value;
+          frame.data[i + 1] = value;
+          frame.data[i + 2] = value;
+          frame.data[i + 3] = 255;
+        }
+        context.putImageData(frame, 0, 0);
+      };
+
+      render();
+      if (!reducedMotion) {
+        const scheduleNext = () => {
+          const delay = 1800 + Math.random() * 3200;
+          window.setTimeout(() => {
+            if (!canvas.isConnected) return;
+            render();
+            scheduleNext();
+          }, delay);
+        };
+        window.setTimeout(scheduleNext, Math.random() * 1800);
+      }
+    };
 
     if (grid && selectionButton && archiveEntries.length > 3) {
       let currentIds = [];
@@ -54,7 +93,7 @@ const archiveEntries = entries.map((entry) => ({
 
       const createTile = (entry) => {
         const item = document.createElement('li');
-        item.className = `entry-tile ${entry.orientation}`;
+        item.className = `entry-tile ${entry.orientation}${entry.visibility === 'pending' ? ' pending' : ''}`;
 
         const link = document.createElement('a');
         link.className = 'entry-link';
@@ -62,11 +101,31 @@ const archiveEntries = entries.map((entry) => ({
 
         const imageContainer = document.createElement('div');
         imageContainer.className = 'entry-image';
-        const image = document.createElement('img');
-        image.src = entry.image;
-        image.alt = `Placeholder image for ${entry.id}`;
-        image.loading = 'lazy';
-        imageContainer.append(image);
+
+        if (entry.visibility === 'pending') {
+          const pending = document.createElement('div');
+          pending.className = 'pending-image';
+          pending.setAttribute('role', 'img');
+          pending.setAttribute('aria-label', `Image pending registration for ${entry.id}`);
+
+          const canvas = document.createElement('canvas');
+          canvas.className = 'pending-noise';
+          canvas.setAttribute('aria-hidden', 'true');
+
+          const label = document.createElement('span');
+          label.className = 'pending-label';
+          label.textContent = 'Image pending registration';
+
+          pending.append(canvas, label);
+          imageContainer.append(pending);
+          requestAnimationFrame(() => startNoise(canvas));
+        } else {
+          const image = document.createElement('img');
+          image.src = entry.image;
+          image.alt = `Artwork for ${entry.id}`;
+          image.loading = 'lazy';
+          imageContainer.append(image);
+        }
 
         const metadata = document.createElement('div');
         metadata.className = 'tile-meta';
