@@ -36,7 +36,39 @@ jobs:
       - name: Verify production build
         run: test -f dist/index.html
 
-      - name: Deploy static files over FTP
+      - name: Deploy static files over FTP — attempt 1
+        id: deploy1
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./dist/
+
+      - name: Wait before FTP retry
+        if: steps.deploy1.outcome == 'failure'
+        run: sleep 20
+
+      - name: Deploy static files over FTP — attempt 2
+        id: deploy2
+        if: steps.deploy1.outcome == 'failure'
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./dist/
+
+      - name: Wait before final FTP retry
+        if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        run: sleep 40
+
+      - name: Deploy static files over FTP — final attempt
+        if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
